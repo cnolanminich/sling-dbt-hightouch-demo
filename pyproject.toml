@@ -1,0 +1,35 @@
+[project]
+name = "sling_dbt_hightouch_demo"
+requires-python = ">=3.10,<3.14"
+version = "0.1.0"
+dependencies = [
+    "dagster==1.12.3",
+    "dagster-dbt>=0.28.3",
+    "dagster-hightouch>=0.1.7",
+    "dagster-sling>=0.28.3",
+    "dbt-duckdb>=1.10.0",
+]
+
+[dependency-groups]
+dev = [
+    "dagster-webserver",
+    "dagster-dg-cli",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+force-include = { "pyproject.toml" = "pyproject.toml" }
+
+[tool.dg]
+directory_type = "project"
+
+[tool.dg.project]
+root_module = "sling_dbt_hightouch_demo"
+registry_modules = [
+    "sling_dbt_hightouch_demo.components.*",
+]
+
+

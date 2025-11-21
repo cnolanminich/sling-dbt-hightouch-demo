@@ -1,0 +1,6 @@
+type: sling_dbt_hightouch_demo.defs.sling_ingestion.component.CustomSlingComponent
+
+attributes:
+  demo_mode: true
+  replications:
+    - path: replication.yaml

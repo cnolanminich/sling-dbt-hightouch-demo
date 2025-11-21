@@ -1,0 +1,6 @@
+type: sling_dbt_hightouch_demo.defs.analytics_dbt.component.CustomDbtComponent
+
+attributes:
+  demo_mode: true
+  project:
+    project_dir: analytics_dbt

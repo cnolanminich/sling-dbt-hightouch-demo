@@ -1,0 +1,19 @@
+# Sling replication configuration for syncing data from PostgreSQL to DuckDB
+# This configuration is ignored when demo_mode is true
+source: postgres://user:password@localhost:5432/source_db
+
+target: duckdb://./data/warehouse.db
+
+streams:
+  public.customers:
+    mode: full-refresh
+    object: raw.customers
+
+  public.orders:
+    mode: incremental
+    object: raw.orders
+    update_key: updated_at
+
+  public.products:
+    mode: full-refresh
+    object: raw.products

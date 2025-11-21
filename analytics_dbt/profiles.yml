@@ -1,0 +1,20 @@
+analytics_dbt:
+  target: dev
+  outputs:
+    dev:
+      # Demo mode: Uses DuckDB for local development
+      type: duckdb
+      path: ./data/analytics.duckdb
+      threads: 4
+
+    prod:
+      # Production mode: Connect to actual data warehouse
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+      role: "{{ env_var('SNOWFLAKE_ROLE') }}"
+      database: ANALYTICS
+      warehouse: TRANSFORM
+      schema: PUBLIC
+      threads: 8

@@ -1,0 +1,7 @@
+type: sling_dbt_hightouch_demo.components.HightouchSyncComponent
+
+attributes:
+  demo_mode: true
+  # Dummy credentials for demo mode (ignored when demo_mode is true)
+  api_key: "demo_api_key_not_used"
+  workspace_id: "demo_workspace_id"
