@@ -1,0 +1,7 @@
+locations:
+  - location_name: sling-dbt-hightouch-demo
+    code_source:
+      package_name: sling_dbt_hightouch_demo
+    build:
+      directory: .
+      registry: ""
